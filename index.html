@@ -405,6 +405,17 @@
 
     /* Services — image-led, no card chrome: the photographs carry the structure. */
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3.5vw, 2.75rem) clamp(1.25rem, 3vw, 2rem); }
+
+    /* Selected works — real site photography from the company profile. Square frames
+       keep it inside the dossier language; captions are mono so they read as labels. */
+    .works { margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.6rem); }
+    .work { margin: 0; }
+    .work-frame { aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--border); background: var(--bg-2); }
+    .work-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .work figcaption { display: flex; flex-direction: column; gap: 0.15rem; padding-top: 0.65rem; }
+    .work-tag { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; }
+    .work-place { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: var(--muted); }
     .service-card { display: flex; flex-direction: column; }
     .service-card:nth-child(6n + 1) { --card-accent: var(--fib-1); }
     .service-card:nth-child(6n + 2) { --card-accent: var(--fib-2); }
@@ -628,7 +639,7 @@
     html.motion .par-frame img { transform: translate3d(0, calc(var(--par, 0) * -1px), 0); }
 
     @media (max-width: 1024px) {
-      .cards-grid, .quality-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid, .quality-grid { grid-template-columns: repeat(2, 1fr); } .works-grid { grid-template-columns: repeat(2, 1fr); }
       .quality-item { padding-right: 2rem; }
       .quality-item:nth-child(2n) { padding-right: 0; }
       .stats, .band-stats { grid-template-columns: repeat(2, 1fr); }
@@ -649,7 +660,7 @@
       .values-grid, .community-list { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
-      .cards-grid, .quality-grid, .stats, .band-stats, .values-grid, .community-list { grid-template-columns: 1fr; }
+      .cards-grid, .quality-grid, .stats, .band-stats, .values-grid, .community-list, .works-grid { grid-template-columns: 1fr; }
       .quality-item { padding-right: 0; }
       .logo-cell { padding: 0 1.4rem; min-width: 120px; }
       .logo-cell img { height: 28px; }
@@ -1067,6 +1078,24 @@
             </div>
           </article>
         </div>
+        <div class="works sig">
+          <h3 class="subsection-title" data-i18n="works.title">Selected works</h3>
+          <p class="subsection-intro" data-i18n="works.intro">Recent site activity from our own crews — overhead plant, wireless installation and company-owned machinery.</p>
+          <div class="works-grid">
+            <figure class="work">
+              <div class="work-frame"><img src="images/works-overhead.jpg" alt="Crew installing overhead cables on poles using a crane" loading="lazy" width="946" height="800"></div>
+              <figcaption><span class="work-tag" data-i18n="works.1.t">Overhead cables &amp; poles</span><span class="work-place" data-i18n="works.1.d">Pekan, Pahang</span></figcaption>
+            </figure>
+            <figure class="work">
+              <div class="work-frame"><img src="images/works-ti.jpg" alt="Technician commissioning equipment at a TI installation site" loading="lazy" width="1000" height="774"></div>
+              <figcaption><span class="work-tag" data-i18n="works.2.t">TI installation</span><span class="work-place" data-i18n="works.2.d">Wireless site build</span></figcaption>
+            </figure>
+            <figure class="work">
+              <div class="work-frame"><img src="images/works-plant.jpg" alt="Company-owned backhoe loader in the equipment yard" loading="lazy" width="1100" height="756"></div>
+              <figcaption><span class="work-tag" data-i18n="works.3.t">Plant &amp; machinery</span><span class="work-place" data-i18n="works.3.d">Owned fleet</span></figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1432,6 +1461,11 @@
           "svc.5.desc": "Our civil work division handles the physical infrastructure, such as duct installations, pole erection, chamber construction, manholes, and concrete structures required for telecom networks.",
           "svc.6.title": "Fibre Termination & Splicing",
           "svc.6.desc": "We carry out precise fibre optic splicing and termination using high-accuracy tools and certified technicians, ensuring seamless data transmission with minimal loss and maximum performance.",
+          "works.title": "Selected works",
+          "works.intro": "Recent site activity from our own crews — overhead plant, wireless installation and company-owned machinery.",
+          "works.1.t": "Overhead cables & poles", "works.1.d": "Pekan, Pahang",
+          "works.2.t": "TI installation", "works.2.d": "Wireless site build",
+          "works.3.t": "Plant & machinery", "works.3.d": "Owned fleet",
           "why.index": "03", "why.title": "Why clients choose us",
           "why.intro": "Technical depth plus disciplined project management — practical, scalable solutions built for long-term success.",
           "why.r1": "End-to-end delivery — one partner from survey to handover.",
@@ -1527,6 +1561,11 @@
           "svc.5.desc": "Bahagian kerja awam kami mengendalikan infrastruktur fizikal seperti pemasangan dukt, pendirian tiang, pembinaan kebuk, lubang pemeriksaan dan struktur konkrit yang diperlukan untuk rangkaian telekomunikasi.",
           "svc.6.title": "Pengakhiran & Penyambungan Fiber",
           "svc.6.desc": "Kami menjalankan penyambungan dan pengakhiran fiber optik yang tepat menggunakan alat berketepatan tinggi dan juruteknik bertauliah, memastikan penghantaran data lancar dengan kehilangan minimum dan prestasi maksimum.",
+          "works.title": "Kerja terpilih",
+          "works.intro": "Aktiviti tapak terkini oleh kru kami sendiri — kerja atas tiang, pemasangan wayarles dan jentera milik syarikat.",
+          "works.1.t": "Kabel atas & tiang", "works.1.d": "Pekan, Pahang",
+          "works.2.t": "Pemasangan TI", "works.2.d": "Pembinaan tapak wayarles",
+          "works.3.t": "Jentera & mesin", "works.3.d": "Armada milik sendiri",
           "why.index": "03", "why.title": "Kenapa pelanggan memilih kami",
           "why.intro": "Kedalaman teknikal serta pengurusan projek yang berdisiplin — penyelesaian praktikal dan berskala untuk kejayaan jangka panjang.",
           "why.r1": "Penghantaran hujung-ke-hujung — satu rakan kongsi dari tinjauan hingga penyerahan.",
